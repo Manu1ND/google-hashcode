@@ -45,7 +45,7 @@ def solver(input):  # not be changed
 
 		streets[streetName] = Street(
 			startIntersectionID, endIntersectionID, streetDuration)
-		#intersections[endIntersectionID].addInter(streetName, 1)
+		intersections[endIntersectionID].addInter(streetName, 1)
 
 	cars = []
 	for i in range(nOfCars):
@@ -55,11 +55,8 @@ def solver(input):  # not be changed
 		for street in streetsCarTravels:
 			streets[street].addCarNumber()
 		cars.append(Car(nOfStreetsCarTravels, streetsCarTravels))
-	
-	streets = sorted(streets.items(), key=lambda x: x[1].nOfCarsPassing, reverse=True)
-	for i,x in streets:
-		intersections[x.endIntersectionID].addInter(i, x.nOfCarsPassing)
-		
+
+	#streets = sorted(streets.items(), key=lambda x: x[1].nOfCarsPassing, reverse=True)		
 	result = []
 	result.append(str(len(intersections))+'\n')
 
@@ -70,4 +67,5 @@ def solver(input):  # not be changed
 		result.append(str(len(i.streetNames))+'\n')
 		for x in range(len(i.streetNames)):
 			result.append(str(i.streetNames[x])+' '+str(i.time[x])+'\n')
+
 	return result  # not be changed
