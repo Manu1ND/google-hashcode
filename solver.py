@@ -69,9 +69,5 @@ def solver(input):  # not be changed
 		ID+= 1
 		result.append(str(len(i.streetNames))+'\n')
 		for x in range(len(i.streetNames)):
-			result.append(str(i.streetNames[x])+str(i.time[x])+'\n')
+			result.append(str(i.streetNames[x])+' '+str(i.time[x])+'\n')
 	return result  # not be changed
-
-	# a, b, c = map(int, input.readline().split())
-
-	# libraries.sort(key=lambda x: x.para, reverse=True)
